@@ -11,7 +11,7 @@ const COLORS = {
   urgent: '#991B1B',
   significant: '#F97316',
   below: '#EAB308',
-  standard: '#9CA3AF',
+  standard: '#10B981',
   excellent: '#1E3A8A'
 };
 
@@ -68,7 +68,7 @@ const deptDataMap = {
     scores: [
       { name: 'Ủy quyền và Trao quyền quyết định', score: 1.35 },
       { name: 'Huấn luyện linh hoạt và Phát triển trên công việc', score: 1.43 },
-      { name: 'Bản đồ nhân tài và Sẵn sàng kế thừa', score: 1.52 },
+      { name: 'Nhân tài kế thừa', score: 1.52 },
       { name: 'An toàn tâm lý và Gắn kết đội ngũ', score: 1.62 },
       { name: 'Trung bình E', score: 1.48 }
     ],
@@ -90,7 +90,7 @@ const deptDataMap = {
     scores: [
       { name: 'Ủy quyền và Trao quyền quyết định', score: 1.52 },
       { name: 'Huấn luyện linh hoạt và Phát triển trên công việc', score: 1.60 },
-      { name: 'Bản đồ nhân tài và Sẵn sàng kế thừa', score: 1.62 },
+      { name: 'Nhân tài kế thừa', score: 1.62 },
       { name: 'An toàn tâm lý và Gắn kết đội ngũ', score: 1.70 },
       { name: 'Trung bình E', score: 1.61 }
     ],
@@ -112,7 +112,7 @@ const deptDataMap = {
     scores: [
       { name: 'Ủy quyền và Trao quyền quyết định', score: 1.70 },
       { name: 'Huấn luyện linh hoạt và Phát triển trên công việc', score: 1.67 },
-      { name: 'Bản đồ nhân tài và Sẵn sàng kế thừa', score: 1.66 },
+      { name: 'Nhân tài kế thừa', score: 1.66 },
       { name: 'An toàn tâm lý và Gắn kết đội ngũ', score: 1.77 },
       { name: 'Trung bình E', score: 1.70 }
     ],
@@ -300,6 +300,7 @@ const App = () => {
   const [isStarted, setIsStarted] = React.useState(false);
   const [isPrinting, setIsPrinting] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState(0);
+  const [showConsultForm, setShowConsultForm] = React.useState(false);
 
 
   const tabs = [
@@ -323,13 +324,139 @@ const App = () => {
 
   if (!isStarted) {
     return (
-      <div className="flex-col flex-center" style={{ minHeight: '100vh', padding: '2rem' }}>
-        <h1 style={{ color: '#1E3A8A', marginBottom: '1rem' }}>REAL Manager Framework™</h1>
-        <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>Hệ thống Báo cáo Năng lực Quản lý Toàn diện</p>
-        <div className="gap-4 flex-center">
-          <button className="tab-btn">Tải Template Excel</button>
-          <button className="tab-btn">Upload Dữ liệu</button>
-          <button className="tab-btn active" onClick={() => setIsStarted(true)}>Xem Demo</button>
+      <div style={{ fontFamily: 'Inter, sans-serif', color: '#1e293b' }}>
+        {/* Hero Section */}
+        <div style={{ 
+          background: 'linear-gradient(135deg, #fbcfe8 0%, #c4b5fd 100%)', 
+          padding: '6rem 2rem', 
+          textAlign: 'center',
+          borderBottom: '1px solid rgba(255,255,255,0.3)'
+        }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+              <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(3, 1fr)', 
+                gap: '2px', 
+                backgroundColor: '#1e3a8a', 
+                padding: '2px', 
+                borderRadius: '12px',
+                width: '80px',
+                height: '80px'
+              }}>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>V</div>
+                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>A</div>
+                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>C</div>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
+              </div>
+              <div style={{ textAlign: 'left' }}>
+                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#1e3a8a', fontWeight: '900', lineHeight: '1.1' }}>VMP</h1>
+                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#ea580c', fontWeight: '900', lineHeight: '1.1' }}>Assessment</h1>
+                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#1e3a8a', fontWeight: '900', lineHeight: '1.1' }}>Center</h1>
+              </div>
+            </div>
+            
+            <h2 style={{ fontSize: '1.5rem', color: '#1e3a8a', fontStyle: 'italic', marginBottom: '1rem', fontWeight: '700' }}>
+              Hệ thống đánh giá năng lực quản lý dựa trên hành vi.
+            </h2>
+            <p style={{ fontSize: '1.2rem', color: '#334155', marginBottom: '1.5rem', fontWeight: '500' }}>
+              Nhìn rõ năng lực quản lý phía sau kết quả KPI.
+            </p>
+            <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
+              Kết hợp 5 phương pháp đánh giá và phân tích chi phí hành vi, giúp doanh nghiệp xác định năng lực ưu tiên phát triển và đầu tư đào tạo đúng trọng tâm.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
+              <button style={{ 
+                backgroundColor: '#0f172a', 
+                color: 'white', 
+                border: 'none', 
+                padding: '1rem 2rem', 
+                borderRadius: '8px', 
+                fontSize: '1.1rem', 
+                fontWeight: '700', 
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              }}>
+                Nhận Demo Doanh Nghiệp
+              </button>
+              <button 
+                onClick={() => setIsStarted(true)}
+                style={{ 
+                backgroundColor: 'transparent', 
+                color: '#1e3a8a', 
+                border: '2px solid #1e3a8a', 
+                padding: '1rem 2rem', 
+                borderRadius: '8px', 
+                fontSize: '1.1rem', 
+                fontWeight: '700', 
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseOver={(e) => { e.target.style.backgroundColor = 'rgba(30, 58, 138, 0.1)' }}
+              onMouseOut={(e) => { e.target.style.backgroundColor = 'transparent' }}
+              >
+                Xem Báo Cáo Mẫu
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Features Section */}
+        <div style={{ backgroundColor: '#f8fafc', padding: '5rem 2rem' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <p style={{ textAlign: 'center', fontSize: '1.1rem', color: '#334155', maxWidth: '800px', margin: '0 auto 4rem auto', lineHeight: '1.6' }}>
+              Từ dữ liệu năng lực đến quyết định phát triển đội ngũ, VMP Assessment Center giúp doanh nghiệp xác định năng lực ưu tiên và lựa chọn chương trình đào tạo phù hợp với mỗi quản lý, thông qua:
+            </p>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              
+              {/* Feature 1 */}
+              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
+                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                  <i className="fas fa-id-card" style={{ fontSize: '3rem' }}></i>
+                </div>
+                <div style={{ padding: '2rem' }}>
+                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Hồ sơ năng lực cá nhân</h3>
+                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
+                    Thể hiện kết quả 16 năng lực quản lý, các hành vi nổi bật và khoảng cách giữa tự đánh giá với kết quả thực tế. Giúp nhà quản lý nhận diện điểm mạnh, hành vi cần phát triển và tạo cơ sở cho các cuộc trao đổi phát triển với cấp trên và HR.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
+                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                  <i className="fas fa-chart-pie" style={{ fontSize: '3rem' }}></i>
+                </div>
+                <div style={{ padding: '2rem' }}>
+                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Bản đồ năng lực và chi phí hành vi đội ngũ</h3>
+                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
+                    Tổng hợp năng lực theo cấp quản lý, phòng ban hoặc khu vực; kết hợp chỉ số chi phí để so sánh mức độ ảnh hưởng của các hành vi. Giúp doanh nghiệp phân nhóm nhu cầu, xác định năng lực ưu tiên và phân bổ ngân sách đào tạo có cơ sở hơn.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
+                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
+                  <i className="fas fa-route" style={{ fontSize: '3rem' }}></i>
+                </div>
+                <div style={{ padding: '2rem' }}>
+                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Lộ trình phát triển 30-60-90 ngày</h3>
+                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
+                    Xác định hành vi cần cải thiện, hoạt động thực hành, điểm kiểm tra tiến độ và chương trình đào tạo phù hợp. Giúp nhà quản lý, cấp trên và Bộ phận L&D thống nhất hành động và theo dõi sự thay đổi hành vi sau đánh giá.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -945,8 +1072,8 @@ const App = () => {
 
       {/* SECTION 4 — HỆ LỤY: Nỗi đau lớn nhất */}
       <div className="card">
-        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Hệ lụy trực tiếp từ 3 hành vi sai lệch</h3>
-        <div className="grid-3 gap-4">
+        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Hệ lụy trực tiếp từ 4 hành vi sai lệch</h3>
+        <div className="grid-4 gap-4">
           <div style={{ padding: '1.25rem', backgroundColor: '#FEF2F2', borderRadius: '8px', border: '1px solid #FECACA', display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>⚠️</div>
             <h4 style={{ color: '#991B1B', marginBottom: '0.5rem', fontSize: '1.05rem' }}>Quản lý làm thay</h4>
@@ -962,9 +1089,14 @@ const App = () => {
             <h4 style={{ color: '#166534', marginBottom: '0.5rem', fontSize: '1.05rem' }}>Không duy trì kết quả</h4>
             <p style={{ fontSize: '0.9rem', color: '#14532D', margin: 0, lineHeight: '1.6', textAlign: 'justify' }}>Các hoạt động huấn luyện chỉ dừng ở lý thuyết, không chuyển hóa thành hành vi thực tế lâu dài.</p>
           </div>
+          <div style={{ padding: '1.25rem', backgroundColor: '#F3F4F6', borderRadius: '8px', border: '1px solid #E5E7EB', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>🚪</div>
+            <h4 style={{ color: '#374151', marginBottom: '0.5rem', fontSize: '1.05rem' }}>Nhân tài nghỉ việc</h4>
+            <p style={{ fontSize: '0.9rem', color: '#1F2937', margin: 0, lineHeight: '1.6', textAlign: 'justify' }}>Thiếu sự gắn kết và trao quyền khiến nhân sự giỏi mất động lực và rời bỏ tổ chức.</p>
+          </div>
         </div>
         <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#EFF6FF', borderRadius: '8px', fontSize: '0.95rem', color: '#1E3A8A' }}>
-          <strong>📌 Kết luận:</strong> Khắc phục 3 khoảng trống Empowerment này chính là "đòn bẩy" nhanh nhất để tối ưu quỹ thời gian, tăng tốc độ ra quyết định và xây dựng đội ngũ kế thừa vững mạnh.
+          <strong>📌 Kết luận:</strong> Khắc phục 4 khoảng trống Empowerment này chính là "đòn bẩy" nhanh nhất để tối ưu quỹ thời gian, tăng tốc độ ra quyết định và giữ chân đội ngũ kế thừa vững mạnh.
         </div>
       </div>
     </div>
@@ -1162,7 +1294,7 @@ const App = () => {
             </div>
             
             {/* Priority 4: Có nền tảng */}
-            <div style={{ padding: '1.25rem', border: `1px solid ${COLORS.standard}`, borderRadius: '12px', backgroundColor: '#F3F4F6', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
+            <div style={{ padding: '1.25rem', border: `1px solid ${COLORS.standard}`, borderRadius: '12px', backgroundColor: '#ECFDF5', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
               <h4 style={{ color: COLORS.standard, margin: '0 0 0.75rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <i className="fas fa-layer-group" style={{ fontSize: '1.1rem' }}></i>
@@ -1170,7 +1302,7 @@ const App = () => {
                 </div>
                 <span style={{ backgroundColor: COLORS.standard, color: 'white', padding: '4px 12px', borderRadius: '16px', fontSize: '0.85rem', fontWeight: 'bold' }}>Theo dõi (3)</span>
               </h4>
-              <p style={{ margin: 0, fontSize: '0.95rem', color: '#374151', lineHeight: '1.6' }}>
+              <p style={{ margin: 0, fontSize: '0.95rem', color: '#047857', lineHeight: '1.6' }}>
                 Hỗ trợ mục tiêu, nguồn lực và năng lực Results.
               </p>
             </div>
@@ -1218,135 +1350,334 @@ const App = () => {
 
   const Tab6 = () => (
     <div className="flex-col gap-4">
-      {/* Section 1 */}
+      {/* Block 1: Phân nhóm Triển khai */}
       <div className="card">
-        <h3 className="card-title">Khuyến nghị Modules Đào tạo</h3>
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Phân Nhóm Triển Khai</h3>
+        <div className="grid-3 gap-4">
+          <div style={{ backgroundColor: '#FEF2F2', border: `1px solid ${COLORS.urgent}`, padding: '1.25rem', borderRadius: '12px' }}>
+            <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.urgent}`, paddingBottom: '0.5rem' }}>
+              <div>
+                <div style={{ color: COLORS.urgent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm A</div>
+                <div style={{ color: COLORS.urgent, fontSize: '0.9rem', fontWeight: 'normal' }}>Can thiệp chuyên sâu</div>
+              </div>
+              <span className="badge badge-urgent">9 Quản lý</span>
+            </h4>
+            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#7F1D1D', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              <li>Điểm E từ 1,00–1,39.</li>
+              <li>Tham gia đầy đủ các module được chỉ định.</li>
+              <li>Có cấp trên quan sát trực tiếp.</li>
+              <li>Check-in hai tuần một lần.</li>
+            </ul>
+          </div>
+          <div style={{ backgroundColor: '#FFF7ED', border: `1px solid ${COLORS.significant}`, padding: '1.25rem', borderRadius: '12px' }}>
+            <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.significant}`, paddingBottom: '0.5rem' }}>
+              <div>
+                <div style={{ color: COLORS.significant, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm B</div>
+                <div style={{ color: COLORS.significant, fontSize: '0.9rem', fontWeight: 'normal' }}>Phát triển có cấu trúc</div>
+              </div>
+              <span style={{ backgroundColor: '#FFEDD5', color: COLORS.significant, padding: '4px 12px', borderRadius: '16px', fontSize: '0.85rem', fontWeight: 'bold' }}>13 Quản lý</span>
+            </h4>
+            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#9A3412', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              <li>Điểm E từ 1,40–1,99.</li>
+              <li>Tham gia module theo hành vi còn thiếu.</li>
+              <li>Check-in hằng tháng.</li>
+              <li>Thực hiện workplace assignment.</li>
+            </ul>
+          </div>
+          <div style={{ backgroundColor: '#F0FDF4', border: `1px solid ${COLORS.excellent}`, padding: '1.25rem', borderRadius: '12px' }}>
+            <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.excellent}`, paddingBottom: '0.5rem' }}>
+              <div>
+                <div style={{ color: COLORS.excellent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm C</div>
+                <div style={{ color: COLORS.excellent, fontSize: '0.9rem', fontWeight: 'normal' }}>Củng cố & nhân rộng</div>
+              </div>
+              <span style={{ backgroundColor: '#DCFCE7', color: COLORS.excellent, padding: '4px 12px', borderRadius: '16px', fontSize: '0.85rem', fontWeight: 'bold' }}>8 Quản lý</span>
+            </h4>
+            <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#166534', fontSize: '0.95rem', lineHeight: '1.6' }}>
+              <li>Điểm E từ 2,00 trở lên.</li>
+              <li>Thực hiện nhiệm vụ nâng cao.</li>
+              <li>Hỗ trợ peer practice.</li>
+              <li>Chuẩn bị lộ trình hướng đến Mastery.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Block 2: Lộ trình 30-60-90 */}
+      <div className="card">
+        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Lộ Trình 30–60–90 Ngày</h3>
+        <div className="flex-col gap-4">
+          <div style={{ display: 'flex', gap: '1.5rem', backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', padding: '1.5rem', borderRadius: '12px' }}>
+            <div style={{ flexShrink: 0, width: '120px' }}>
+              <div style={{ backgroundColor: 'var(--vmp-navy)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold', textAlign: 'center', fontSize: '1.1rem' }}>0–30 Ngày</div>
+              <div style={{ textAlign: 'center', marginTop: '0.5rem', fontSize: '0.85rem', color: '#475569', fontWeight: 'bold' }}>Phản hồi &<br/>Thiết lập quyền</div>
+            </div>
+            <div style={{ flex: 1, display: 'flex', gap: '2rem' }}>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: 'var(--vmp-navy)', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-tasks" style={{ marginRight: '0.5rem' }}></i>Hoạt động</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>Phản hồi báo cáo cá nhân cho 30 quản lý.</li>
+                  <li>Xác định 2 hành vi E ưu tiên của từng người.</li>
+                  <li>Tổ chức Module <strong>Ủy quyền và Trao quyền</strong>.</li>
+                  <li>Giao tối thiểu 2 tình huống thực hành.</li>
+                  <li>Thiết lập phạm vi quyền quyết định, checkpoint.</li>
+                </ul>
+              </div>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: '#10B981', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-check-circle" style={{ marginRight: '0.5rem' }}></i>Đầu ra</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>30 kế hoạch phát triển cá nhân.</li>
+                  <li>Tối thiểu 60 tình huống giao quyền thực tế.</li>
+                  <li>Bằng chứng trước và sau thực hành.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '1.5rem', backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', padding: '1.5rem', borderRadius: '12px' }}>
+            <div style={{ flexShrink: 0, width: '120px' }}>
+              <div style={{ backgroundColor: 'var(--vmp-orange)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold', textAlign: 'center', fontSize: '1.1rem' }}>31–60 Ngày</div>
+              <div style={{ textAlign: 'center', marginTop: '0.5rem', fontSize: '0.85rem', color: '#475569', fontWeight: 'bold' }}>Coaching &<br/>Phát triển</div>
+            </div>
+            <div style={{ flex: 1, display: 'flex', gap: '2rem' }}>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: 'var(--vmp-orange)', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-tasks" style={{ marginRight: '0.5rem' }}></i>Hoạt động</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>Tổ chức Module <strong>Huấn luyện linh hoạt</strong>.</li>
+                  <li>Mỗi quản lý thực hiện tối thiểu 4 cuộc coaching.</li>
+                  <li>Cấp trên/đồng cấp quan sát ít nhất 1 tình huống.</li>
+                  <li>Đối chiếu hành vi bằng sản phẩm công việc.</li>
+                </ul>
+              </div>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: '#10B981', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-check-circle" style={{ marginRight: '0.5rem' }}></i>Đầu ra</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>Tối thiểu 120 tình huống coaching.</li>
+                  <li>Biên bản hành động và bằng chứng tiến bộ.</li>
+                  <li>Danh sách hành vi cần tiếp tục rèn luyện.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '1.5rem', backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', padding: '1.5rem', borderRadius: '12px' }}>
+            <div style={{ flexShrink: 0, width: '120px' }}>
+              <div style={{ backgroundColor: '#10B981', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold', textAlign: 'center', fontSize: '1.1rem' }}>61–90 Ngày</div>
+              <div style={{ textAlign: 'center', marginTop: '0.5rem', fontSize: '0.85rem', color: '#475569', fontWeight: 'bold' }}>Nhân tài &<br/>Đánh giá lại</div>
+            </div>
+            <div style={{ flex: 1, display: 'flex', gap: '2rem' }}>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: '#10B981', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-tasks" style={{ marginRight: '0.5rem' }}></i>Hoạt động</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>Talent Calibration theo đơn vị.</li>
+                  <li>Xác định vai trò trọng yếu và ứng viên kế thừa.</li>
+                  <li>Thiết lập quy ước lên tiếng và phản hồi.</li>
+                  <li>Đánh giá lại 16 hành vi E.</li>
+                  <li>Đối chiếu điểm E với KPI và dữ liệu vận hành.</li>
+                </ul>
+              </div>
+              <div style={{ flex: 1 }}>
+                <strong style={{ color: '#10B981', display: 'block', marginBottom: '0.5rem' }}><i className="fas fa-check-circle" style={{ marginRight: '0.5rem' }}></i>Đầu ra</strong>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#334155', fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  <li>Bản đồ nhân tài cập nhật.</li>
+                  <li>Các đơn vị có vai trò trọng yếu được lấp đầy.</li>
+                  <li>Báo cáo ROI và Mức độ dịch chuyển.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Block 3: Phân bổ Module & Đơn vị (Phụ lục) */}
+      <div className="card">
+        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Chi Tiết Phân Bổ Nguồn Lực Đào Tạo</h3>
+        <div style={{ backgroundColor: '#FFFBEB', color: '#B45309', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1.5rem', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <i className="fas fa-exclamation-triangle"></i>
+          <span><strong>Chỉ mở 4 Module gắn trực tiếp với Vùng Đỏ (Empowerment).</strong></span>
+        </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.95rem' }}>
           <thead>
-            <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '2px solid #E5E7EB' }}>
-              <th style={{ padding: '0.75rem', textAlign: 'left' }}>Module Khuyến nghị</th>
-              <th style={{ padding: '0.75rem', textAlign: 'left' }}>Mục tiêu đầu ra (KSA)</th>
-              <th style={{ padding: '0.75rem', textAlign: 'left' }}>Gắn với năng lực</th>
+            <tr style={{ backgroundColor: '#F3F4F6', borderBottom: '2px solid #E5E7EB' }}>
+              <th style={{ padding: '0.75rem' }}>Module Đào tạo</th>
+              <th style={{ padding: '0.75rem' }}>Hình thức</th>
+              <th style={{ padding: '0.75rem', textAlign: 'center' }}>Vận hành</th>
+              <th style={{ padding: '0.75rem', textAlign: 'center' }}>Kinh doanh</th>
+              <th style={{ padding: '0.75rem', textAlign: 'center' }}>Hỗ trợ</th>
+              <th style={{ padding: '0.75rem', textAlign: 'center' }}>Tổng (QL)</th>
             </tr>
           </thead>
           <tbody>
             <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
-              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>1. Nghệ thuật Ủy quyền &amp; Trao quyền</td>
-              <td style={{ padding: '0.75rem' }}>Phân loại công việc, chọn đúng người, kiểm soát rủi ro</td>
-              <td style={{ padding: '0.75rem', color: COLORS.urgent }}>NL6 Ủy quyền (1.53)</td>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>Ủy quyền và Trao quyền quyết định</td>
+              <td style={{ padding: '0.75rem' }}>1 ngày + thực hành tại nơi làm việc</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>10</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>8</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>6</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold', color: COLORS.urgent }}>24</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
-              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>2. Huấn luyện (Coaching) Liên hoàn</td>
-              <td style={{ padding: '0.75rem' }}>Mô hình GROW, đặt câu hỏi khai vấn, theo dõi tiến độ</td>
-              <td style={{ padding: '0.75rem', color: COLORS.urgent }}>NL14 Kèm cặp (1.57)</td>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>Huấn luyện linh hoạt và Phát triển trên công việc</td>
+              <td style={{ padding: '0.75rem' }}>1 ngày + coaching practice</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>10</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>8</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>5</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold', color: COLORS.urgent }}>23</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
-              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>3. Xây dựng Bản đồ nhân tài</td>
-              <td style={{ padding: '0.75rem' }}>Đánh giá 9-box, xác định High-Potentials</td>
-              <td style={{ padding: '0.75rem', color: COLORS.urgent }}>NL15 Bản đồ (1.60)</td>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>Nhân tài kế thừa</td>
+              <td style={{ padding: '0.75rem' }}>Workshop hiệu chuẩn + dự án</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>8</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>7</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>6</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold', color: COLORS.significant }}>21</td>
             </tr>
-            <tr>
-              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>4. Kiến tạo An toàn tâm lý</td>
-              <td style={{ padding: '0.75rem' }}>Văn hóa phản hồi, khuyến khích sáng tạo</td>
-              <td style={{ padding: '0.75rem', color: COLORS.significant }}>NL9 An toàn TL (1.69)</td>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '0.75rem', fontWeight: 'bold' }}>An toàn tâm lý và Gắn kết đội ngũ</td>
+              <td style={{ padding: '0.75rem' }}>0,5 ngày + team practice</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>7</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>6</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center' }}>5</td>
+              <td style={{ padding: '0.75rem', textAlign: 'center', fontWeight: 'bold', color: COLORS.significant }}>18</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      {/* Section 2 */}
-      <div className="grid-2 gap-4">
-        <div className="card">
-          <h3 className="card-title">Phân bổ Module theo Phòng ban</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', fontSize: '0.9rem' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '2px solid #E5E7EB' }}>
-                <th style={{ padding: '0.5rem', textAlign: 'left' }}>Phòng ban</th>
-                <th style={{ padding: '0.5rem' }}>M1</th>
-                <th style={{ padding: '0.5rem' }}>M2</th>
-                <th style={{ padding: '0.5rem' }}>M3</th>
-                <th style={{ padding: '0.5rem' }}>M4</th>
-              </tr>
-            </thead>
-            <tbody>
-              {mockDeptModule.map((row, i) => (
-                <tr key={i} style={{ borderBottom: '1px solid #E5E7EB' }}>
-                  <td style={{ padding: '0.5rem', textAlign: 'left', fontWeight: 'bold' }}>{row.dept}</td>
-                  <td style={{ padding: '0.5rem' }}>{row.m1}</td>
-                  <td style={{ padding: '0.5rem' }}>{row.m2}</td>
-                  <td style={{ padding: '0.5rem' }}>{row.m3}</td>
-                  <td style={{ padding: '0.5rem' }}>{row.m4}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Block 4: Chỉ số Dịch chuyển Mục tiêu */}
+      <div className="card">
+        <h3 className="card-title" style={{ marginBottom: '1.5rem' }}>Chỉ Số Dịch Chuyển Mục Tiêu (Sau 90 Ngày)</h3>
+        
+        {/* Top 3 Big Metrics */}
+        <div className="grid-3 gap-4" style={{ marginBottom: '2rem' }}>
+          <div style={{ backgroundColor: '#F0F9FF', border: '1px solid #BAE6FD', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
+            <h4 style={{ color: '#0369A1', margin: '0 0 0.5rem 0' }}>Tỷ lệ đạt chuẩn E</h4>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#0284C7' }}>Ít nhất 50%</div>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#0369A1' }}>(Hiện tại: 8/30 quản lý)</p>
+          </div>
+          <div style={{ backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
+            <h4 style={{ color: '#047857', margin: '0 0 0.5rem 0' }}>Giảm giờ lãng phí</h4>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#059669' }}>&lt; 160h/tháng</div>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#047857' }}>(Hiện tại: 214 giờ/tháng)</p>
+          </div>
+          <div style={{ backgroundColor: '#FEF2F2', border: '1px solid #FECACA', padding: '1.5rem', borderRadius: '12px', textAlign: 'center' }}>
+            <h4 style={{ color: '#B91C1C', margin: '0 0 0.5rem 0' }}>Giảm hành vi yếu kém</h4>
+            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#DC2626' }}>Dưới 35%</div>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#B91C1C' }}>(Hiện tại: 49.2% hành vi Mức 1)</p>
+          </div>
         </div>
-        <div className="card">
-          <h3 className="card-title">Phân bổ Nhóm theo Năng lực</h3>
-          <ul style={{ paddingLeft: '1.5rem', margin: 0 }}>
-            <li style={{ marginBottom: '0.5rem' }}><strong>Nhóm A (Khẩn cấp):</strong> 13 QL điểm E &lt; 1.6 &amp; 9 Hero. Ưu tiên học ngay M1 &amp; M2.</li>
-            <li style={{ marginBottom: '0.5rem' }}><strong>Nhóm B (Cần thiết):</strong> 5 QL điểm 1.6 - 2.0. Tham gia M3 &amp; M4 để chuẩn hóa.</li>
-            <li><strong>Nhóm C (Kế thừa):</strong> 3 QL &gt; 2.0. Trở thành Mentor hoặc Co-Trainer nội bộ.</li>
+
+        {/* Detailed Metrics Table */}
+        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.95rem' }}>
+          <thead>
+            <tr style={{ backgroundColor: '#F9FAFB', borderBottom: '2px solid #E5E7EB' }}>
+              <th style={{ padding: '1rem' }}>Chỉ số</th>
+              <th style={{ padding: '1rem', textAlign: 'center', color: '#4B5563' }}>Hiện tại (Ban đầu)</th>
+              <th style={{ padding: '1rem', textAlign: 'center', color: '#10B981' }}>Mục tiêu ngày 90</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Điểm E trung bình</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>1,60</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Từ 1,85</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Quản lý đạt chuẩn E</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>8/30</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Ít nhất 15/30</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Lượt hành vi mức 1</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>236/480</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Không quá 165/480</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Tỷ lệ hành vi mức 1</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>49,2%</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Dưới 35%</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Tỷ lệ nhân viên phụ thuộc quản lý</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>38%</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Không quá 28%</td>
+            </tr>
+            <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
+              <td style={{ padding: '1rem', fontWeight: 'bold' }}>Tỷ lệ thời gian tập trung vào chiến lược</td>
+              <td style={{ padding: '1rem', textAlign: 'center' }}>44%</td>
+              <td style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', color: '#10B981' }}>Từ 70%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style={{ marginTop: '1.5rem', backgroundColor: '#F8FAFC', padding: '1rem 1.5rem', borderLeft: '4px solid var(--vmp-navy)', fontSize: '0.95rem', color: '#334155', fontStyle: 'italic' }}>
+          * Các chỉ số trên là mục tiêu phát triển đề xuất, không phải cam kết kết quả. Mức dịch chuyển chính thức cần được thống nhất dựa trên điểm nền, cơ hội thực hành và mức độ tham gia của cấp trên.
+        </div>
+      </div>
+      
+      {/* Block 5: Kết luận & CTA */}
+      <div style={{ backgroundColor: 'var(--vmp-navy)', color: 'white', padding: '3rem 2rem', borderRadius: '16px', marginTop: '1rem', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <h2 style={{ margin: '0 0 1rem 0', fontSize: '1.8rem', color: '#BFDBFE' }}>KẾT LUẬN</h2>
+          <h3 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', fontWeight: 'normal' }}>GIẢI PHÁP THỰC THI TỪ DỮ LIỆU ĐÁNH GIÁ</h3>
+          <p style={{ fontSize: '1.05rem', color: '#E2E8F0', marginBottom: '1rem' }}>Báo cáo giúp xác định cụ thể:</p>
+          <ul style={{ paddingLeft: '1.5rem', margin: '0 0 2rem 0', fontSize: '1.05rem', color: '#E2E8F0', lineHeight: '1.7' }}>
+            <li>Xác định <strong>22/30 quản lý chưa đạt chuẩn</strong> và <strong>50% tác vụ quản lý</strong> đang gây sụt giảm hiệu suất.</li>
+            <li>Chỉ ra đích danh <strong>phòng ban lãng phí nguồn lực</strong> và các cá nhân mắc <strong>"bẫy làm thay"</strong>.</li>
+            <li>Tối ưu ngân sách L&D bằng <strong>giải pháp cá nhân hóa</strong> dựa trên <strong>dữ liệu đo lường khách quan</strong>.</li>
           </ul>
-        </div>
-      </div>
-
-      {/* Section 3 */}
-      <div className="grid-2 gap-4">
-        <div className="card">
-          <h3 className="card-title">Lộ trình triển khai (90 ngày)</h3>
-          <div className="flex-col gap-2">
-            <div className="flex-center gap-4" style={{ justifyContent: 'flex-start' }}>
-              <div style={{ backgroundColor: 'var(--vmp-navy)', color: 'white', padding: '0.5rem 1rem', borderRadius: '4px', fontWeight: 'bold', minWidth: '80px', textAlign: 'center' }}>Tháng 1</div>
-              <div>Đào tạo Module 1 &amp; 2. Giao bài tập ứng dụng.</div>
+          
+          {/* VMP Assessment Center CTA (Web & PDF) */}
+          <div style={{ backgroundColor: 'rgba(255,255,255,0.1)', padding: '2rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.2)' }}>
+            <h4 style={{ margin: '0 0 0.5rem 0', color: '#60A5FA', fontSize: '1.1rem', letterSpacing: '1px', textAlign: 'center' }}>VMP ASSESSMENT CENTER HỖ TRỢ DOANH NGHIỆP</h4>
+            <h3 style={{ margin: '0 0 2rem 0', fontSize: '1.8rem', color: 'white', textAlign: 'center' }}>THIẾT KẾ BẢN ĐỒ NĂNG LỰC QUẢN LÝ</h3>
+            <div className="grid-4 gap-4">
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', backgroundColor: 'rgba(96, 165, 250, 0.2)', padding: '0.6rem 0.5rem', borderRadius: '20px', fontSize: '0.88rem', textAlign: 'center', lineHeight: '1.4' }}><i className="fas fa-check" style={{ color: '#60A5FA' }}></i> Tìm ra "điểm nghẽn" hiệu suất</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', backgroundColor: 'rgba(96, 165, 250, 0.2)', padding: '0.6rem 0.5rem', borderRadius: '20px', fontSize: '0.88rem', textAlign: 'center', lineHeight: '1.4' }}><i className="fas fa-check" style={{ color: '#60A5FA' }}></i> Cá nhân hóa lộ trình phát triển</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', backgroundColor: 'rgba(96, 165, 250, 0.2)', padding: '0.6rem 0.5rem', borderRadius: '20px', fontSize: '0.88rem', textAlign: 'center', lineHeight: '1.4' }}><i className="fas fa-check" style={{ color: '#60A5FA' }}></i> Lộ trình chuyển đổi 90 ngày</div>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem', backgroundColor: 'rgba(96, 165, 250, 0.2)', padding: '0.6rem 0.5rem', borderRadius: '20px', fontSize: '0.88rem', textAlign: 'center', lineHeight: '1.4' }}><i className="fas fa-check" style={{ color: '#60A5FA' }}></i> Đo lường kết quả bằng ROI</div>
             </div>
-            <div className="flex-center gap-4" style={{ justifyContent: 'flex-start' }}>
-              <div style={{ backgroundColor: 'var(--vmp-orange)', color: 'white', padding: '0.5rem 1rem', borderRadius: '4px', fontWeight: 'bold', minWidth: '80px', textAlign: 'center' }}>Tháng 2</div>
-              <div>Coaching thực địa 1-1. Đào tạo Module 3.</div>
-            </div>
-            <div className="flex-center gap-4" style={{ justifyContent: 'flex-start' }}>
-              <div style={{ backgroundColor: '#10B981', color: 'white', padding: '0.5rem 1rem', borderRadius: '4px', fontWeight: 'bold', minWidth: '80px', textAlign: 'center' }}>Tháng 3</div>
-              <div>Đánh giá lại (Re-test). Đào tạo Module 4.</div>
+            
+            <div className="no-print" style={{ textAlign: 'center' }}>
+              <button 
+                onClick={() => setShowConsultForm(true)}
+                style={{ marginTop: '2.5rem', backgroundColor: 'var(--vmp-orange)', color: 'white', border: 'none', padding: '1.2rem 3rem', borderRadius: '8px', fontSize: '1.2rem', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+                Nhận Tư Vấn Ngay
+              </button>
             </div>
           </div>
         </div>
-        <div className="card">
-          <h3 className="card-title">Kỳ vọng ROI (Hiện tại vs Mục tiêu)</h3>
-          <div style={{ height: 200 }}>
-            <ResponsiveContainer>
-              <BarChart data={mockBeforeAfter} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="before" name="Hiện tại" fill="var(--vmp-navy)" />
-                <Bar dataKey="after" name="Mục tiêu" fill="#10B981" />
-              </BarChart>
-            </ResponsiveContainer>
+      </div>
+      
+      {/* Modal Popup Đăng ký tư vấn */}
+      {showConsultForm && (
+        <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.6)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ backgroundColor: 'white', padding: '2rem 2.5rem', borderRadius: '16px', color: '#333', width: '100%', maxWidth: '450px', position: 'relative', boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }}>
+            <button 
+              onClick={() => setShowConsultForm(false)}
+              style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: '#94a3b8' }}>
+              &times;
+            </button>
+            <h4 style={{ margin: '0 0 1.5rem 0', color: 'var(--vmp-navy)', fontSize: '1.3rem', textAlign: 'center' }}>ĐĂNG KÝ NHẬN TƯ VẤN</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <input type="text" placeholder="Công ty *" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', fontSize: '0.95rem' }} />
+              <input type="text" placeholder="Họ và Tên *" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', fontSize: '0.95rem' }} />
+              <input type="tel" placeholder="SĐT *" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', fontSize: '0.95rem' }} />
+              <input type="email" placeholder="Email *" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', fontSize: '0.95rem' }} />
+              <input type="text" placeholder="Chức vụ *" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', fontSize: '0.95rem' }} />
+              <textarea placeholder="Câu hỏi của bạn *" rows="3" style={{ padding: '0.75rem', borderRadius: '8px', border: '1px solid #cbd5e1', width: '100%', resize: 'vertical', fontSize: '0.95rem' }}></textarea>
+              <button 
+                onClick={() => {
+                  alert('Cảm ơn bạn đã đăng ký tư vấn! Chuyên gia từ VMP Academy sẽ liên hệ trong thời gian sớm nhất.');
+                  setShowConsultForm(false);
+                }}
+                style={{ backgroundColor: 'var(--vmp-orange)', color: 'white', border: 'none', padding: '0.85rem', borderRadius: '8px', fontSize: '1.05rem', fontWeight: 'bold', cursor: 'pointer', marginTop: '0.5rem' }}>
+                Đăng ký
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Section 4 */}
-      <div className="grid-3 gap-4">
-        <div className="card flex-col flex-center" style={{ backgroundColor: '#F0F9FF', border: '1px solid #BAE6FD' }}>
-          <h4 style={{ color: '#0369A1' }}>Tăng tỷ lệ đạt chuẩn E</h4>
-          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#0284C7' }}>+46%</div>
-          <p style={{ fontSize: '0.85rem' }}>Từ 8 lên 22 Quản lý</p>
-        </div>
-        <div className="card flex-col flex-center" style={{ backgroundColor: '#ECFDF5', border: '1px solid #A7F3D0' }}>
-          <h4 style={{ color: '#047857' }}>Giảm giờ lãng phí</h4>
-          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#059669' }}>-25%</div>
-          <p style={{ fontSize: '0.85rem' }}>Tiết kiệm 54h/tháng</p>
-        </div>
-        <div className="card flex-col flex-center" style={{ backgroundColor: '#FEF2F2', border: '1px solid #FECACA' }}>
-          <h4 style={{ color: '#B91C1C' }}>Thu hồi Chi phí</h4>
-          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#DC2626' }}>225 Triệu</div>
-          <p style={{ fontSize: '0.85rem' }}>Giá trị thu lại trong 1 năm</p>
-        </div>
-      </div>
-
+      )}
+      
       <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: '2rem', paddingBottom: '2rem' }}>
         Báo cáo được trích xuất từ Hệ thống Đánh giá Năng lực REAL - VMP Academy
       </div>
@@ -1381,12 +1712,12 @@ const App = () => {
 
       <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
         {isPrinting ? (
-          <div className="flex-col gap-4">
-            <div className="page-break"><Tab1 /></div>
-            <div className="page-break"><Tab2 /></div>
-            <div className="page-break"><Tab4 /></div>
-            <div className="page-break"><Tab5 /></div>
-            <div className="page-break"><Tab6 /></div>
+          <div className="flex-col" style={{ gap: '3rem' }}>
+            <div><Tab1 /></div>
+            <div><Tab2 /></div>
+            <div><Tab4 /></div>
+            <div><Tab5 /></div>
+            <div><Tab6 setShowConsultForm={setShowConsultForm} /></div>
           </div>
         ) : (
           <div>
@@ -1394,7 +1725,7 @@ const App = () => {
             {activeTab === 1 && <Tab2 />}
             {activeTab === 2 && <Tab4 />}
             {activeTab === 3 && <Tab5 />}
-            {activeTab === 4 && <Tab6 />}
+            {activeTab === 4 && <Tab6 setShowConsultForm={setShowConsultForm} />}
           </div>
         )}
       </div>
