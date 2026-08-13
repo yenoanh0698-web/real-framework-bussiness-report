@@ -115,6 +115,12 @@ body {
     gap: 1.5rem;
 }
 
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
 .grid-35-65 {
     display: grid;
     grid-template-columns: 35fr 65fr;
@@ -262,6 +268,10 @@ body {
         break-after: auto !important;
     }
     
+    .no-print {
+        display: none !important;
+    }
+    
     /* Prevent cutting cards in half */
     .card {
         box-shadow: none !important;
@@ -273,7 +283,7 @@ body {
     }
     
     /* Prevent grids from being sliced */
-    .grid-3, .grid-2, .grid-35-65 {
+    .grid-4, .grid-3, .grid-2, .grid-35-65 {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
     }

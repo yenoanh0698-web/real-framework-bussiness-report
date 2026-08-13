@@ -333,32 +333,8 @@ const App = () => {
           borderBottom: '1px solid rgba(255,255,255,0.3)'
         }}>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
-              <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(3, 1fr)', 
-                gap: '2px', 
-                backgroundColor: '#1e3a8a', 
-                padding: '2px', 
-                borderRadius: '12px',
-                width: '80px',
-                height: '80px'
-              }}>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>V</div>
-                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>A</div>
-                <div style={{ backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: '900', fontSize: '1.2rem', borderRadius: '4px' }}>C</div>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-                <div style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1e3a8a', fontWeight: 'bold' }}></div>
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#1e3a8a', fontWeight: '900', lineHeight: '1.1' }}>VMP</h1>
-                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#ea580c', fontWeight: '900', lineHeight: '1.1' }}>Assessment</h1>
-                <h1 style={{ margin: 0, fontSize: '2.5rem', color: '#1e3a8a', fontWeight: '900', lineHeight: '1.1' }}>Center</h1>
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}>
+              <img src="https://w.ladicdn.com/s900x500/5989d841a4c18f198dc44df9/logo-vac-20260803042644-ybdp3.png" alt="VMP Assessment Center Logo" style={{ height: '140px', objectFit: 'contain' }} />
             </div>
             
             <h2 style={{ fontSize: '1.5rem', color: '#1e3a8a', fontStyle: 'italic', marginBottom: '1rem', fontWeight: '700' }}>
@@ -373,17 +349,30 @@ const App = () => {
             
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
               <button style={{ 
-                backgroundColor: '#0f172a', 
-                color: 'white', 
-                border: 'none', 
-                padding: '1rem 2rem', 
+                backgroundColor: 'white', 
+                color: '#475569', 
+                border: '1px solid #cbd5e1', 
+                padding: '1rem 1.5rem', 
                 borderRadius: '8px', 
                 fontSize: '1.1rem', 
-                fontWeight: '700', 
+                fontWeight: '600', 
                 cursor: 'pointer',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
               }}>
-                Nhận Demo Doanh Nghiệp
+                <i className="fas fa-download" style={{ marginRight: '0.5rem' }}></i>Tải Template
+              </button>
+              <button style={{ 
+                backgroundColor: 'white', 
+                color: '#475569', 
+                border: '1px solid #cbd5e1', 
+                padding: '1rem 1.5rem', 
+                borderRadius: '8px', 
+                fontSize: '1.1rem', 
+                fontWeight: '600', 
+                cursor: 'pointer',
+                boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
+              }}>
+                <i className="fas fa-upload" style={{ marginRight: '0.5rem' }}></i>Upload Dữ liệu
               </button>
               <button 
                 onClick={() => setIsStarted(true)}
@@ -403,58 +392,6 @@ const App = () => {
               >
                 Xem Báo Cáo Mẫu
               </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div style={{ backgroundColor: '#f8fafc', padding: '5rem 2rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <p style={{ textAlign: 'center', fontSize: '1.1rem', color: '#334155', maxWidth: '800px', margin: '0 auto 4rem auto', lineHeight: '1.6' }}>
-              Từ dữ liệu năng lực đến quyết định phát triển đội ngũ, VMP Assessment Center giúp doanh nghiệp xác định năng lực ưu tiên và lựa chọn chương trình đào tạo phù hợp với mỗi quản lý, thông qua:
-            </p>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-              
-              {/* Feature 1 */}
-              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
-                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                  <i className="fas fa-id-card" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Hồ sơ năng lực cá nhân</h3>
-                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
-                    Thể hiện kết quả 16 năng lực quản lý, các hành vi nổi bật và khoảng cách giữa tự đánh giá với kết quả thực tế. Giúp nhà quản lý nhận diện điểm mạnh, hành vi cần phát triển và tạo cơ sở cho các cuộc trao đổi phát triển với cấp trên và HR.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 2 */}
-              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
-                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                  <i className="fas fa-chart-pie" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Bản đồ năng lực và chi phí hành vi đội ngũ</h3>
-                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
-                    Tổng hợp năng lực theo cấp quản lý, phòng ban hoặc khu vực; kết hợp chỉ số chi phí để so sánh mức độ ảnh hưởng của các hành vi. Giúp doanh nghiệp phân nhóm nhu cầu, xác định năng lực ưu tiên và phân bổ ngân sách đào tạo có cơ sở hơn.
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)', border: '1px solid #e2e8f0' }}>
-                <div style={{ backgroundColor: '#e2e8f0', height: '220px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                  <i className="fas fa-route" style={{ fontSize: '3rem' }}></i>
-                </div>
-                <div style={{ padding: '2rem' }}>
-                  <h3 style={{ color: '#1e3a8a', fontSize: '1.25rem', marginBottom: '1rem', textAlign: 'center' }}>Lộ trình phát triển 30-60-90 ngày</h3>
-                  <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: '1.6', textAlign: 'center' }}>
-                    Xác định hành vi cần cải thiện, hoạt động thực hành, điểm kiểm tra tiến độ và chương trình đào tạo phù hợp. Giúp nhà quản lý, cấp trên và Bộ phận L&D thống nhất hành động và theo dõi sự thay đổi hành vi sau đánh giá.
-                  </p>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
