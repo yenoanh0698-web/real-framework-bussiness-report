@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VMP Assessment Hub</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css?v=3" />
+
+    <!-- React & ReactDOM -->
+    <script crossorigin="anonymous" src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script crossorigin="anonymous" src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Recharts dependencies and Recharts -->
+    <script crossorigin="anonymous" src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+    <script crossorigin="anonymous" src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+    
+    <!-- SheetJS for Excel Parsing -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" src="app.jsx?v=99"></script>
+    <script>
+      window.addEventListener('error', function(e) {
+        document.body.innerHTML += '<div style="color:red; padding: 20px; font-family: monospace;">' + 
+          '<h3>Lỗi kịch bản:</h3>' + 
+          '<p>' + e.message + '</p>' + 
+          '<p>File: ' + e.filename + ' - Dòng: ' + e.lineno + '</p>' + 
+          '</div>';
+      });
+      window.addEventListener('unhandledrejection', function(e) {
+        document.body.innerHTML += '<div style="color:red; padding: 20px; font-family: monospace;"><h3>Lỗi Promise:</h3><p>' + e.reason + '</p></div>';
+      });
+      const originalError = console.error;
+      console.error = function() {
+        document.body.innerHTML += '<div style="color:red; padding: 20px; font-family: monospace;"><h3>Lỗi Console:</h3><p>' + Array.from(arguments).join(' ') + '</p></div>';
+        originalError.apply(console, arguments);
+      };
+    </script>
+</body>
+</html>
