@@ -1294,7 +1294,7 @@ const App = () => {
           <div style={{ backgroundColor: '#FEF2F2', border: `1px solid ${COLORS.urgent}`, padding: '1.25rem', borderRadius: '12px' }}>
             <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.urgent}`, paddingBottom: '0.5rem' }}>
               <div>
-                <div style={{ color: COLORS.urgent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm A</div>
+                <div style={{ color: COLORS.urgent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm Hero Cá nhân</div>
                 <div style={{ color: COLORS.urgent, fontSize: '0.9rem', fontWeight: 'normal' }}>Can thiệp chuyên sâu</div>
               </div>
               <span className="badge badge-urgent">9 Quản lý</span>
@@ -1309,7 +1309,7 @@ const App = () => {
           <div style={{ backgroundColor: '#FFF7ED', border: `1px solid ${COLORS.significant}`, padding: '1.25rem', borderRadius: '12px' }}>
             <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.significant}`, paddingBottom: '0.5rem' }}>
               <div>
-                <div style={{ color: COLORS.significant, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm B</div>
+                <div style={{ color: COLORS.significant, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm Cần can thiệp</div>
                 <div style={{ color: COLORS.significant, fontSize: '0.9rem', fontWeight: 'normal' }}>Phát triển có cấu trúc</div>
               </div>
               <span style={{ backgroundColor: '#FFEDD5', color: COLORS.significant, padding: '4px 12px', borderRadius: '16px', fontSize: '0.85rem', fontWeight: 'bold' }}>13 Quản lý</span>
@@ -1324,7 +1324,7 @@ const App = () => {
           <div style={{ backgroundColor: '#F0FDF4', border: `1px solid ${COLORS.excellent}`, padding: '1.25rem', borderRadius: '12px' }}>
             <h4 style={{ margin: '0 0 1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: `1px solid ${COLORS.excellent}`, paddingBottom: '0.5rem' }}>
               <div>
-                <div style={{ color: COLORS.excellent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm C</div>
+                <div style={{ color: COLORS.excellent, fontWeight: 'bold', fontSize: '1.1rem' }}>Nhóm Quản lý hệ thống</div>
                 <div style={{ color: COLORS.excellent, fontSize: '0.9rem', fontWeight: 'normal' }}>Củng cố & nhân rộng</div>
               </div>
               <span style={{ backgroundColor: '#DCFCE7', color: COLORS.excellent, padding: '4px 12px', borderRadius: '16px', fontSize: '0.85rem', fontWeight: 'bold' }}>8 Quản lý</span>
